@@ -1,4 +1,4 @@
-package com.github.keough99;
+package com.keough99.easyelevator;
 
 import org.bukkit.ChatColor;
 import org.bukkit.block.Block;

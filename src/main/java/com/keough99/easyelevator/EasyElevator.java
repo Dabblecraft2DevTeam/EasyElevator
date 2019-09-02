@@ -1,4 +1,4 @@
-package com.github.keough99;
+package com.keough99.easyelevator;
 
 import java.util.ArrayList;
 import java.util.List;

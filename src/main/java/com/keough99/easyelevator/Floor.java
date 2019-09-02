@@ -1,4 +1,4 @@
-package com.github.keough99;
+package com.keough99.easyelevator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +17,7 @@ public class Floor
   private Location l2;
   private World world;
   private Sign callSign;
-  private int floor;
+  private String floor;
   private int height;
   private boolean isCalled = false;
   private boolean hasOpenDoors = false;
@@ -29,7 +29,7 @@ public class Floor
   private List<Block> redstoneOutDoorBlock = new ArrayList();
   private List<Block> redstoneOutFloorBlock = new ArrayList();
   
-  public Floor(Elevator elv, Location l1, Location l2, Sign callSign, int floor)
+  public Floor(Elevator elv, Location l1, Location l2, Sign callSign, String floor)
   {
     this.elevator = elv;
     this.l1 = l1;
@@ -299,7 +299,7 @@ public class Floor
     return this.height;
   }
   
-  public int getFloor()
+  public String getFloor()
   {
     return this.floor;
   }
@@ -309,9 +309,9 @@ public class Floor
     return this.callSign.getY();
   }
   
-  public void writeSign(int line, String message)
+  public void writeSign(int line, String curr)
   {
-    this.callSign.setLine(line, message);
+    this.callSign.setLine(line, curr);
     this.callSign.update();
   }
   
