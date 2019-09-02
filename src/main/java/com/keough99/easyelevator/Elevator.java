@@ -232,7 +232,7 @@ public class Elevator
           org.bukkit.block.Sign callSign = getCallSign(b1.getLocation(), b2.getLocation());
           if (callSign != null)
           {
-            Floor floor = new Floor(this, b1.getLocation(), b2.getLocation(), callSign, count + 1);
+            Floor floor = new Floor(this, b1.getLocation(), b2.getLocation(), callSign, Integer.toString(count + 1));
             this.floors.add(floor);
             count++;
           }
@@ -363,7 +363,7 @@ public class Elevator
   {
     int height = -1;
     for (int i = 0; i < this.floors.size(); i++) {
-      if (((Floor)this.floors.get(i)).getFloor() == Floor) {
+      if (((Floor)this.floors.get(i)).getFloor() == Integer.toString(Floor)) {
         height = ((Floor)this.floors.get(i)).getHeight();
       }
     }
@@ -406,7 +406,7 @@ public class Elevator
   public void StopAt(int floor)
   {
     for (Floor f : this.floors) {
-      if (f.getFloor() == floor)
+      if (f.getFloor() == Integer.toString(floor))
       {
         Call(f.getSignHeight());
         return;
@@ -508,7 +508,7 @@ public class Elevator
     if (next > this.floors.size()) {
       next = 1;
     }
-    this.platform.writeSign(1, next);
+    this.platform.writeSign(1, Integer.toString(next));
   }
   
   public int getFloorNumberFromHeight(int hight)
@@ -516,7 +516,7 @@ public class Elevator
     int floor = -1;
     for (Floor f : this.floors) {
       if (f.getHeight() == hight) {
-        return f.getFloor();
+        return Integer.parseInt(f.getFloor());
       }
     }
     return floor;
@@ -670,7 +670,7 @@ public class Elevator
     for (int i = 0; i < this.floors.size(); i++) {
       if (curr != -1)
       {
-        ((Floor)this.floors.get(i)).writeSign(2, curr);
+        ((Floor)this.floors.get(i)).writeSign(2, Integer.toString(curr));
       }
       else
       {
@@ -684,7 +684,7 @@ public class Elevator
     }
     if (curr != -1)
     {
-      this.platform.writeSign(2, curr);
+      this.platform.writeSign(2, Integer.toString(curr));
     }
     else
     {
@@ -697,7 +697,7 @@ public class Elevator
     }
     int next = getFloorNumberFromHeight(getNextFloorHeight());
     if (next != -1) {
-      this.platform.writeSign(3, next);
+      this.platform.writeSign(3, Integer.toString(next));
     } else {
       this.platform.writeSign(3, "-");
     }
@@ -708,7 +708,7 @@ public class Elevator
     if (isFloor(this.platform.getHeight())) {
       for (int i = 0; i < this.floors.size(); i++) {
         if (this.platform.getHeight() == ((Floor)this.floors.get(i)).getHeight()) {
-          return ((Floor)this.floors.get(i)).getFloor();
+          return Integer.parseInt(((Floor)this.floors.get(i)).getFloor());
         }
       }
     }
