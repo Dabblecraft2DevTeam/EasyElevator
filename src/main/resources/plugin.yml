@@ -1,0 +1,10 @@
+name: EasyElevator
+main: com.keough99.easyelevator.EasyElevator
+version: 2.0
+commands:
+  elv:
+    description: Elevator Commands
+    usage: /elv
+  eelevator:
+    description: Elevator Commands
+    usage: /eelevator
